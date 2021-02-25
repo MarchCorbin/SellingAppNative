@@ -4,9 +4,9 @@
     "slug": "DoneWithIt",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./app/assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./app/assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -26,7 +26,9 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./app/assets/favicon.png"
+    },
+    "description": "A marketplace for selling all the things you no longer have a use for.",
+    "githubUrl": "https://github.com/MarchCorbin"
   }
 }

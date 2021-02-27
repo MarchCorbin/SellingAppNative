@@ -12,6 +12,7 @@ import MessagesScreen from './app/screens/MessagesScreen';
 import Screen from './app/components/Screen';
 import Icon from './app/components/Icon';
 import ListItem from './app/components/ListItem';
+import AccountScreen from './app/screens/AccountScreen'
 
 
 
@@ -19,15 +20,9 @@ import ListItem from './app/components/ListItem';
 export default function App() {
 
   return (  
-    <Screen>
-   <ListItem title='My Title' subTitle='My Subtitle' ImageComponent={<Icon name='email' />} />
-    </Screen>
-    // <ListingDetailsScreen />
-    // <View style={{
-    //   backgroundColor:'#f8f4f4',
-    //   padding:20,
-    //   paddingTop:100
-    //   }}>
+    // <Image style={{border: '1px solid black', height:'100px', width:'100px'}} source={require('./app/assets/CorbinMarch.jpg')} />
+    <AccountScreen />
+  //   <Screen>
     //     <Card title='Red Jacket for Sale' price='$100' image={require('./app/assets/jacket.jpg')} />
     // </View>
   // <WelcomeScreen />

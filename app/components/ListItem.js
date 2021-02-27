@@ -6,13 +6,13 @@ import Swipeable from 'react-native-gesture-handler/Swipeable'
 
 import { render } from 'react-dom';
 
-function ListItem({title, subTitle, image, ImageComponent, onPress, renderRightActions}) {
+function ListItem({title, subTitle, style=styles.image, image, IconComponent, onPress, renderRightActions}) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
         <View style={styles.container}>
-          {ImageComponent}
-          {Image && <Image style={styles.image} source={image} />}
+          {IconComponent}
+          {Image && <Image style={style} source={image} />}
           <View style={styles.detailsContainer}>
             <AppText style={styles.title}>{title}</AppText>
             {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
@@ -26,13 +26,14 @@ function ListItem({title, subTitle, image, ImageComponent, onPress, renderRightA
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    padding:15,
+    backgroundColor:colors.white,
   },
   detailsContainer: {
     marginLeft:10,
     justifyContent: 'center',
   },
   image: {
-    height:70,
     borderRadius:35,
   },
   title: {

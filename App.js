@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, Text, StatusBar, Dimensions, TouchableHighlight, Platform, View, SafeAreaView, Image, Button, Alert, TouchableOpacity } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, Text, StatusBar, Dimensions, TouchableHighlight, Platform, View, SafeAreaView, Image, Button, Alert, TouchableOpacity, TextInput, Switch } from 'react-native';
 
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
@@ -13,23 +13,23 @@ import Screen from './app/components/Screen';
 import Icon from './app/components/Icon';
 import ListItem from './app/components/ListItem';
 import AccountScreen from './app/screens/AccountScreen'
-
+import ListingsScreen from './app/screens/ListingsScreen'
+import colors from './app/config/colors'
+import AppTextInput from './app/components/AppTextInput'
+import AppPicker from './app/components/AppPicker'
+import LoginScreen from './app/screens/LoginScreen'
 
 
 
 export default function App() {
 
+const [firstName, setFirstName] = useState('')  
+const [isNew, setIsNew] = useState(false)
+
   return (  
-    // <Image style={{border: '1px solid black', height:'100px', width:'100px'}} source={require('./app/assets/CorbinMarch.jpg')} />
-    <AccountScreen />
-  //   <Screen>
-    //     <Card title='Red Jacket for Sale' price='$100' image={require('./app/assets/jacket.jpg')} />
-    // </View>
-  // <WelcomeScreen />
-  // <ViewImageScreen />
-  // <MessagesScreen />
-  // <MaterialCommunityIcons name="email" />
+<LoginScreen />
   );
 }
+
 
 

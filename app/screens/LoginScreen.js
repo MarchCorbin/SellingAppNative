@@ -3,10 +3,7 @@ import { StyleSheet, Image } from 'react-native';
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 
-import AppButton from '../components/AppButton';
-import AppTextInput from '../components/AppTextInput'
-import AppText from '../components/AppText/AppText';
-import ErrorMessage from '../components/ErrorMessage';
+
 import Screen from  '../components/Screen'
 import AppFormField from '../components/AppFormField'
 import SubmitButton from '../components/SubmitButton'

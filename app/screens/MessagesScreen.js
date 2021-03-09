@@ -10,8 +10,8 @@ import ListItemDeleteAction from '../components/ListItemDeleteAction';
 const initialMessages = [
   {
     id:1,
-    title:'t1',
-    description:'d1',
+    title:'This is a long title to see how the display is working with the new functionality',
+    description:'I am selling a thing to make money, I will then use the money to continue my sustenance',
     image:require('../assets/CorbinMarch.jpg')
   },
   {

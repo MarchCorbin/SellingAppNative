@@ -28,8 +28,7 @@ const [firstName, setFirstName] = useState('')
 const [isNew, setIsNew] = useState(false)
 
   return (  
-<ListingEditScreen />
-  );
+<ListingEditScreen />  );
 }
 
 

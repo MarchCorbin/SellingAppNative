@@ -6,7 +6,7 @@ import Icon from './Icon';
 function CategoryPickerItem({item, onPress,}) {
   return (
   <View style={styles.container}>
-    <Icon backgroundColor={item.backgroundColor} name={item.icon} size={80} />
+    <Icon backgroundColor={item.backgroundColor} name={item.icon} size={80} iconColor='green' />
     <AppText style={styles.label}>{item.label}</AppText>
   </View>
   );

@@ -15,7 +15,7 @@ function AppPicker({icon, items, numberOfColumns=1, placeholder, selectedItem, w
   return (
     <>
 <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-  <View style={[styles.container, {width}]}>
+  <View style={[styles.container]}>
     {icon && <MaterialCommunityIcons name={icon} size={20} color={colors.medium} style={styles.icon} />}
     {selectedItem ? <AppText style={styles.text}>{selectedItem.label}</AppText> : <AppText style={styles.placeholder}>{placeholder}</AppText>}
     <MaterialCommunityIcons 

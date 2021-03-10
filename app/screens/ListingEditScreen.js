@@ -17,9 +17,9 @@ const validationSchema = Yup.object().shape({
 })
 
 const categories = [
-  { label: "Furniture", value: 1, backgroundColor:'red', icon:'apps' },
-  { label: "Clothing", value: 2, backgroundColor:'green', icon:'email' },
-  { label: "Camera", value: 3, backgroundColor:'blue', icon:'lock' }
+  { label: "Working", value: 1, backgroundColor:'red', icon:'apps' },
+  { label: "Also working", value: 2, backgroundColor:'green', icon:'email' },
+  { label: "Third working", value: 3, backgroundColor:'blue', icon:'lock' }
 ]
 
 function ListingEditScreen(props) {

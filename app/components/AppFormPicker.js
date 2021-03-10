@@ -15,7 +15,6 @@ const {errors, setFieldValue, touched, values} = useFormikContext()
       PickerItemComponent={PickerItemComponent}
       width={width}
       items={items}
-      icon={items.icon}
       numberOfColumns={numberOfColumns}
       onSelectItem={(item) => setFieldValue(name, item)}
       placeholder={placeholder}

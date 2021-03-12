@@ -22,6 +22,7 @@ import AppPicker from './app/components/AppPicker'
 import LoginScreen from './app/screens/LoginScreen'
 import ListingEditScreen from './app/screens/ListingEditScreen'
 import ImageInput from './app/components/ImageInput';
+import ImageInputList from './app/components/ImageInputList';
 
 
 
@@ -29,32 +30,22 @@ export default function App() {
 
 const [firstName, setFirstName] = useState('')  
 const [isNew, setIsNew] = useState(false)
-const [imageUri, setImageUri] = useState()
+const [imageUris, setImageUris] = useState([])
 
-const requestPermission = async() => {
-  const {granted} = await ImagePicker.requestCameraRollPermissionsAsync()
-  if(!granted) alert('You need to enable permission in order to access the library.')
+const handleAdd = uri => {
+  setImageUris([...imageUris, uri])
 }
 
-useEffect(() => {
-  requestPermission()
-}, [])
-
-const selectImage = async() => {
-  try {
-    const result = await ImagePicker.launchImageLibraryAsync()
-    if(!result.cancelled)
-    setImageUri(result.uri)
-  } catch (error) {
-    console.log('Error reading image', error)
-  }
+const handleRemove = uri => {
+setImageUris(imageUris.filter(imageUri => imageUri !== uri))
 }
 
   return (  
 <Screen>
-  <Button title='Select Image' onPress={selectImage} />
-  <Image source={{uri: imageUri}} style={{width:200, height:200}} />
-  <ImageInput imageUri={imageUri} />
+  <ImageInputList
+   onAddImage={handleAdd}
+   imageUris={imageUris}
+   onRemoveImage={handleRemove} />
 </Screen>  );
 }
 

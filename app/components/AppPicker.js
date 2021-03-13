@@ -8,7 +8,7 @@ import AppText from './AppText/AppText';
 import Screen from './Screen'
 import PickerItem from './PickerItem.js'
 
-function AppPicker({icon, items, numberOfColumns=1, placeholder, selectedItem, width='100%', PickerItemComponent = PickerItem, }) {
+function AppPicker({icon, items, numberOfColumns=1, placeholder, selectedItem, width='100%', PickerItemComponent = PickerItem, onSelectItem }) {
 
   const [modalVisible, setModalVisible] = useState(false)
 

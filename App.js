@@ -4,6 +4,7 @@ import * as Permissions from 'expo-permissions'
 import { StyleSheet, Text, StatusBar, Dimensions, TouchableHighlight, Platform, View, SafeAreaView, Image, Button, Alert, TouchableOpacity, TextInput, Switch } from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack'
 import {NavigationContainer, useNavigation} from '@react-navigation/native'
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
@@ -65,10 +66,24 @@ const StackNavigator = () => (
   </Stack.Navigator>
 )
 
+const Account = () => (
+  <Screen>
+    <Text>Account</Text>
+  </Screen>
+)
+
+const Tab = createBottomTabNavigator()
+const TabNavigator = () => (
+  <Tab.Navigator>
+    <Tab.Screen name='Feed' component={Tweets} />
+    <Tab.Screen name='Account' component={Account} />
+  </Tab.Navigator>
+)
+
 export default function App() {
   return (  
 <NavigationContainer>
-  <StackNavigator />
+  <TabNavigator />
 </NavigationContainer>
     );
 }

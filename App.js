@@ -2,13 +2,13 @@ import React, {useState, useEffect} from 'react';
 import * as ImagePicker from 'expo-image-picker'
 import * as Permissions from 'expo-permissions'
 import { StyleSheet, Text, StatusBar, Dimensions, TouchableHighlight, Platform, View, SafeAreaView, Image, Button, Alert, TouchableOpacity, TextInput, Switch } from 'react-native';
+import {MaterialCommunityIcons} from '@expo/vector-icons'
 import {createStackNavigator} from '@react-navigation/stack'
 import {NavigationContainer, useNavigation} from '@react-navigation/native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import AppText from './app/components/AppText/AppText';
 import AppButton from './app/components/AppButton';
 import Card from './app/components/Card'
@@ -26,6 +26,7 @@ import LoginScreen from './app/screens/LoginScreen'
 import ListingEditScreen from './app/screens/ListingEditScreen'
 import ImageInput from './app/components/ImageInput';
 import ImageInputList from './app/components/ImageInputList';
+import AuthNavigator from './app/navigation/AuthNavigator';
 
 const Link = () => {
   const navigation = useNavigation()
@@ -75,7 +76,7 @@ const Account = () => (
 const Tab = createBottomTabNavigator()
 const TabNavigator = () => (
   <Tab.Navigator>
-    <Tab.Screen name='Feed' component={Tweets} />
+    <Tab.Screen name='Feed' component={StackNavigator} />
     <Tab.Screen name='Account' component={Account} />
   </Tab.Navigator>
 )
@@ -83,7 +84,7 @@ const TabNavigator = () => (
 export default function App() {
   return (  
 <NavigationContainer>
-  <TabNavigator />
+  <AuthNavigator />
 </NavigationContainer>
     );
 }

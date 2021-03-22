@@ -7,13 +7,13 @@ import {MaterialCommunityIcons} from '@expo/vector-icons'
 
 import { render } from 'react-dom';
 
-function ListItem({title, subTitle, style=styles.image, image, IconComponent, onPress, renderRightActions}) {
+function ListItem({title, subTitle, image, IconComponent, onPress, renderRightActions}) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
         <View style={styles.container}>
           {IconComponent}
-          {Image && <Image style={style} source={image} />}
+          {image && <Image style={styles.image} source={image} />}
           <View style={styles.detailsContainer}>
             <AppText numberOfLines={1} style={styles.title}>{title}</AppText>
             {subTitle && <AppText numberOfLines={2} style={styles.subTitle}>{subTitle}</AppText>}
@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
   },
   image: {
     borderRadius:35,
-    height:50,
-    width:50,
+    height:70,
+    width:70,
   },
   title: {
     color: colors.black,

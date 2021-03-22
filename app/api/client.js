@@ -1,7 +1,10 @@
 import {create} from 'apisauce'
 
 const apiClient = create({
-  baseURL: 'http://73.217.41.36/api'
-})
+  baseURL: "http://10.0.0.83:9000/api"
+  })
+
 
 export default apiClient;
+
+

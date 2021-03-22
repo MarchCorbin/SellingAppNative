@@ -16,7 +16,8 @@ useEffect(() => {
 },[])
 
 const loadListings = async() => {
-const response = await listingsApi.getListings()
+const response  = await listingsApi.getListings()
+console.log(response.data)
 setListings(response.data)
 }
 
@@ -24,7 +25,7 @@ setListings(response.data)
 <Screen style={styles.screen}>
     <FlatList 
     data={listings}
-    keyExtractor={listing => listing.id.toString()}
+    keyExtractor={(listing) => listing.id.toString()}
     renderItem={({item}) => 
       <Card 
       title={item.title}

@@ -6,10 +6,12 @@ import Card from '../components/Card'
 import colors from '../config/colors'
 import listingsApi from '../api/listings'
 import routes from '../navigation/routes'
+import Button from '../components/AppButton'
 
 function ListingsScreen({navigation}) {
 
 const [listings, setListings] = useState([])
+const [error, setError] = useState(false)
 
 useEffect(() => {
   loadListings()
@@ -17,12 +19,17 @@ useEffect(() => {
 
 const loadListings = async() => {
 const response  = await listingsApi.getListings()
-console.log(response.data)
+if(!response.ok) return setError(true);
+setError(false)
 setListings(response.data)
 }
 
   return (
 <Screen style={styles.screen}>
+  {error && <>
+  <AppText>Could not retrieve listings.</AppText>
+  <Button title="Retry" onPress={loadListings} />
+  </>}
     <FlatList 
     data={listings}
     keyExtractor={(listing) => listing.id.toString()}

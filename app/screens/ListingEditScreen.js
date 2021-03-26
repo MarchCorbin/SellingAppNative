@@ -10,6 +10,7 @@ import SubmitButton from '../components/SubmitButton'
 import Screen from  '../components/Screen'
 import CategoryPickerItem from '../components/CategoryPickerItem'
 import FormImagePicker from '../components/FormImagePicker';
+import listingsApi from '../api/listings'
 import useLocation from '../hooks/useLocation';
 
 const validationSchema = Yup.object().shape({
@@ -21,14 +22,71 @@ const validationSchema = Yup.object().shape({
 })
 
 const categories = [
-  { label: "Working", value: 1, backgroundColor:'red', icon:'apps' },
-  { label: "Also working", value: 2, backgroundColor:'green', icon:'email' },
-  { label: "Third working", value: 3, backgroundColor:'blue', icon:'lock' }
-]
+  {
+    backgroundColor: "#fc5c65",
+    icon: "floor-lamp",
+    label: "Furniture",
+    value: 1,
+  },
+  {
+    backgroundColor: "#fd9644",
+    icon: "car",
+    label: "Cars",
+    value: 2,
+  },
+  {
+    backgroundColor: "#fed330",
+    icon: "camera",
+    label: "Cameras",
+    value: 3,
+  },
+  {
+    backgroundColor: "#26de81",
+    icon: "cards",
+    label: "Games",
+    value: 4,
+  },
+  {
+    backgroundColor: "#2bcbba",
+    icon: "shoe-heel",
+    label: "Clothing",
+    value: 5,
+  },
+  {
+    backgroundColor: "#45aaf2",
+    icon: "basketball",
+    label: "Sports",
+    value: 6,
+  },
+  {
+    backgroundColor: "#4b7bec",
+    icon: "headphones",
+    label: "Movies & Music",
+    value: 7,
+  },
+  {
+    backgroundColor: "#a55eea",
+    icon: "book-open-variant",
+    label: "Books",
+    value: 8,
+  },
+  {
+    backgroundColor: "#778ca3",
+    icon: "application",
+    label: "Other",
+    value: 9,
+  },
+];
 
 function ListingEditScreen(props) {
+  const location = useLocation()
 
-const location = useLocation()
+  const handleSubmit = async(listing) => {
+    const result = await listingsApi.addListing({...listing, location})
+      if(!result.ok) return alert("Could not save the listing at this time.")
+    alert("Success!")
+  }
+
 
   return (
    <Screen>
@@ -36,7 +94,7 @@ const location = useLocation()
       initialValues={{
         title:"", price:"", description:"", category:null, images: []
      }}
-      onSubmit={(values) => console.log(location)}
+      onSubmit={handleSubmit}
       validationSchema={validationSchema}
      >
        <FormImagePicker name='images' />

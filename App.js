@@ -6,6 +6,7 @@ import {MaterialCommunityIcons} from '@expo/vector-icons'
 import {createStackNavigator} from '@react-navigation/stack'
 import {NavigationContainer, useNavigation} from '@react-navigation/native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import NetInfo from '@react-native-community/netinfo';
 
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
@@ -29,6 +30,7 @@ import ImageInputList from './app/components/ImageInputList';
 import AuthNavigator from './app/navigation/AuthNavigator';
 import navigationTheme from './app/navigation/navigationTheme'
 import AppNavigator from './app/navigation/AppNavigator';
+import OfflineNotice from './app/components/OfflineNotice'
 
 const Link = () => {
   const navigation = useNavigation()
@@ -85,9 +87,12 @@ const TabNavigator = () => (
 
 export default function App() {
   return (  
-<NavigationContainer theme={navigationTheme}>
-  <AppNavigator />
-</NavigationContainer>
+    <>
+      <OfflineNotice />
+      <NavigationContainer theme={navigationTheme}>
+        <AppNavigator />
+      </NavigationContainer>
+    </>
     );
 }
 

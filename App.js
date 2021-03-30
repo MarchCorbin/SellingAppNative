@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import * as ImagePicker from 'expo-image-picker'
-import * as Permissions from 'expo-permissions'
 import { StyleSheet, Text, StatusBar, Dimensions, TouchableHighlight, Platform, View, SafeAreaView, Image, Button, Alert, TouchableOpacity, TextInput, Switch } from 'react-native';
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import {createStackNavigator} from '@react-navigation/stack'
 import {NavigationContainer, useNavigation} from '@react-navigation/native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
-import NetInfo from '@react-native-community/netinfo';
+
+
+import AppLoading from 'expo-app-loading'
 
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
@@ -32,6 +32,7 @@ import navigationTheme from './app/navigation/navigationTheme'
 import AppNavigator from './app/navigation/AppNavigator';
 import OfflineNotice from './app/components/OfflineNotice'
 import AuthContext from './app/auth/context';
+import authStorage from './app/auth/storage';
 
 const Link = () => {
   const navigation = useNavigation()
@@ -88,6 +89,15 @@ const TabNavigator = () => (
 
 export default function App() {
   const [user, setUser] = useState()
+  const [isReady, setIsReady] = useState(false)
+
+  const restoreUser = async () => {
+   const user = await authStorage.getUser()
+    if(user) setUser(user)
+  }
+
+  if(!isReady) return <AppLoading startAsync={restoreUser} onFinish={() => setIsReady(true)} onError={(error) => console.log(error)} />
+
   return (  
     <AuthContext.Provider value={{user, setUser}}>
       <OfflineNotice />

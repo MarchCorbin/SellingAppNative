@@ -13,7 +13,6 @@ const storeToken = async authToken => {
 const getToken = async() => {
   try {
     return await SecureStore.getItemAsync(key)
-
   } catch (error) {
     console.log('Error getting token', error)
   }
@@ -28,12 +27,13 @@ const removeToken = async() => {
 }
 
 const getUser = async() => {
-  const token = await getToken()
+  const token =  getToken()
  return (token) ? jwtDecode(token) : null;
 }
 
 export default {
   getUser,
+  getToken,
   removeToken,
   storeToken,
 }

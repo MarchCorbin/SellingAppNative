@@ -4,6 +4,7 @@ import {MaterialCommunityIcons} from '@expo/vector-icons'
 import {createStackNavigator} from '@react-navigation/stack'
 import {NavigationContainer, useNavigation} from '@react-navigation/native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import {Notifications} from 'expo';
 
 
 import AppLoading from 'expo-app-loading'
@@ -33,6 +34,9 @@ import AppNavigator from './app/navigation/AppNavigator';
 import OfflineNotice from './app/components/OfflineNotice'
 import AuthContext from './app/auth/context';
 import authStorage from './app/auth/storage';
+import {navigationRef} from './app/navigation/rootNavigation';
+
+
 
 const Link = () => {
   const navigation = useNavigation()
@@ -98,11 +102,27 @@ export default function App() {
 
   if(!isReady) return <AppLoading startAsync={restoreUser} onFinish={() => setIsReady(true)} onError={(error) => console.log(error)} />
 
-  return (  
+
+    const showNotification = () => {
+      Notifications.scheduleLocalNotificationAsync({
+        title: 'Congrats!',
+        body: 'Your order was successfully placed!',
+      }, {
+        time: new Date().getTime() + 2000
+      })
+      console.log('hit')
+    }
+ 
+  return (
+    // Local notifications working 
+    // <Screen>
+    //   <Button title='Press Me' onPress={showNotification} />
+    // </Screen>
+
+    // working app
     <AuthContext.Provider value={{user, setUser}}>
       <OfflineNotice />
-      <NavigationContainer theme={navigationTheme}>
-        {/* <AppNavigator /> */}
+      <NavigationContainer ref={navigationRef} theme={navigationTheme}>
         {user ? <AppNavigator /> : <AuthNavigator />}
       </NavigationContainer>
     </AuthContext.Provider>

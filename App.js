@@ -5,6 +5,9 @@ import {createStackNavigator} from '@react-navigation/stack'
 import {NavigationContainer, useNavigation} from '@react-navigation/native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import {Notifications} from 'expo';
+import logger from './app/utility/logger';
+
+logger.start()
 
 
 import AppLoading from 'expo-app-loading'
@@ -35,6 +38,7 @@ import OfflineNotice from './app/components/OfflineNotice'
 import AuthContext from './app/auth/context';
 import authStorage from './app/auth/storage';
 import {navigationRef} from './app/navigation/rootNavigation';
+import { LongPressGestureHandler } from 'react-native-gesture-handler';
 
 
 

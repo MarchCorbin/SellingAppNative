@@ -30,8 +30,21 @@
     },
     "description": "A marketplace for selling all the things you no longer have a use for.",
     "notification": {
-    "iosDisplayInForeground": true
-  },
-    "githubUrl": "https://github.com/MarchCorbin"
+      "iosDisplayInForeground": true
+    },
+    "githubUrl": "https://github.com/MarchCorbin",
+    "extra": {
+      "bugsnag": {
+        "apiKey": "70de1b304341f7171b9ef1155760711a"
+      }
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "@bugsnag/expo/hooks/post-publish.js",
+          "config": {}
+        }
+      ]
+    }
   }
 }

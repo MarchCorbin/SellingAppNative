@@ -102,9 +102,10 @@ export default function App() {
   const restoreUser = async () => {
    const user = await authStorage.getUser()
     if(user) setUser(user)
+    console.log('USER', user)
   }
 
-  if(!isReady) return <AppLoading startAsync={restoreUser} onFinish={() => setIsReady(true)} onError={(error) => console.log(error)} />
+  if(!isReady) return (<AppLoading startAsync={restoreUser} onFinish={() => setIsReady(true)} onError={(error) => console.log(error)} />)
 
 
     const showNotification = () => {

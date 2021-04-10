@@ -18,7 +18,8 @@ function ListingDetailsScreen({route}) {
     <Image style={styles.image} uri={listing.images[0].url} preview={{uri: listing.images[0].thumbnailUrl}} tint='light' />
     <View style={styles.detailsContainer}>
     <AppText style={styles.title}>{listing.title}</AppText>
-    <AppText style={styles.price}>{listing.price}</AppText>
+    <AppText style={styles.description}>{listing.description}</AppText>
+    <AppText style={styles.price}>${listing.price}</AppText>
       <View style={styles.userContainer}>
         <ListItem
         image={require('../assets/CorbinMarch.jpg')}
@@ -44,6 +45,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize:24,
     fontWeight:'500'
+  },
+  description: {
+    fontSize:20,
+    fontWeight:'300'
   },
   price: {
     color: colors.secondary,

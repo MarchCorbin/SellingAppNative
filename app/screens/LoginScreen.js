@@ -4,6 +4,7 @@ import { Formik } from 'formik'
 import * as Yup from 'yup'
 
 import authApi from '../api/auth';
+import authStorage from '../auth/storage'
 import Screen from  '../components/Screen'
 import AppFormField from '../components/AppFormField'
 import SubmitButton from '../components/SubmitButton'
@@ -18,14 +19,17 @@ password: Yup.string().required().min(4).label("Password")
 
 
 function LoginScreen(props) {
+  const auth = useAuth()
   const {logIn} = useAuth()
   const [loginFailed, setLoginFailed] = useState(false)
+
 
   const handleSubmit = async({email, password}) => {
    const result = await authApi.login(email, password)
    if(!result.ok) return setLoginFailed(true)
    setLoginFailed(false)
-   logIn(result.data)
+   auth.logIn(result.data)
+   authStorage.storeToken(result.data)
   }
 
   return (

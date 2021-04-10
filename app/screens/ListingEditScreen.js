@@ -93,6 +93,7 @@ function ListingEditScreen(props) {
         setUploadVisible(false)
         return alert("Could not save the listing at this time.")
       }
+      listingsApi.getListings()
       resetForm()
   }
 

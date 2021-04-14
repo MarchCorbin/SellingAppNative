@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { FlatList, View, StyleSheet, Platform, StatusBar } from 'react-native';
 
-
 import ListItem from '../components/ListItem'
 import Screen from  '../components/Screen'
 import ListItemSeparator from '../components/ListItemSeparator';
@@ -16,8 +15,8 @@ const initialMessages = [
   },
   {
     id:2,
-    title:'t2',
-    description:'d2',
+    title:'Hey When is my Couch Coming!!?!?!?!?!?!?!',
+    description:'It has been 2 weeks and I am still left sitting on the floor!',
     image:require('../assets/CorbinMarch.jpg')
   },
 ]

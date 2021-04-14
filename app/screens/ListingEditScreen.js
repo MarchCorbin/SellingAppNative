@@ -138,4 +138,8 @@ function ListingEditScreen(props) {
   );
 }
 
+const styles = StyleSheet.create({
+  
+})
+
 export default ListingEditScreen;

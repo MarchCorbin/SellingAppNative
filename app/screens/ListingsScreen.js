@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { FlatList , StyleSheet } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 
 import ActivityIndicator from '../components/ActivityIndicator'
 import AppText from '../components/AppText/AppText';
@@ -15,9 +16,11 @@ function ListingsScreen({navigation}) {
  const {data: listings, error, loading, request: loadListings} = useApi(listingsApi.getListings)
 
 
-useEffect(() => {
-  loadListings()
-},[])
+useFocusEffect(
+    React.useCallback(() => {
+    loadListings()
+    },[])
+)
 
   return (
     <>

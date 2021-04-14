@@ -115,7 +115,6 @@ export default function App() {
       }, {
         time: new Date().getTime() + 2000
       })
-      console.log('hit')
     }
  
   return (

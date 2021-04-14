@@ -118,12 +118,7 @@ export default function App() {
     }
  
   return (
-    // Local notifications working 
-    // <Screen>
-    //   <Button title='Press Me' onPress={showNotification} />
-    // </Screen>
-
-    // working app
+  
     <AuthContext.Provider value={{user, setUser}}>
       <OfflineNotice />
       <NavigationContainer ref={navigationRef} theme={navigationTheme}>

@@ -93,13 +93,12 @@ function ListingEditScreen(props) {
         setUploadVisible(false)
         return alert("Could not save the listing at this time.")
       }
-      await listingsApi.getListings()
       resetForm()
   }
 
 
   return (
-   <Screen>
+   <Screen style={{paddingHorizontal: 20}}>
      <UploadScreen onDone={() => setUploadVisible(false)} progress={progress} visible={uploadVisible} />
      <AppForm
       initialValues={{

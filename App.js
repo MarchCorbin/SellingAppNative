@@ -5,9 +5,9 @@ import {createStackNavigator} from '@react-navigation/stack'
 import {NavigationContainer, useNavigation} from '@react-navigation/native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import {Notifications} from 'expo';
-import logger from './app/utility/logger';
+// import logger from './app/utility/logger';
 
-logger.start()
+// logger.start()
 
 
 import AppLoading from 'expo-app-loading'
@@ -41,14 +41,6 @@ import {navigationRef} from './app/navigation/rootNavigation';
 import { LongPressGestureHandler } from 'react-native-gesture-handler';
 
 
-
-const Link = () => {
-  const navigation = useNavigation()
- return( <Button
-  title='Click'
-  onPress={() => navigation.navigate('TweetDetails')} />
- )
-}
 
 
 const Tweets = ({navigation}) => (

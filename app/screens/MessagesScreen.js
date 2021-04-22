@@ -10,14 +10,14 @@ const initialMessages = [
   {
     id:1,
     title:'This is a long title to see how the display is working with the new functionality',
-    description:'I am selling a thing to make money, I will then use the money to continue my sustenance',
-    image:require('../assets/CorbinMarch.jpg')
+    description:'I get my brochure but it smells like cat pee.',
+    image:require('../assets/grumpcat.jpeg')
   },
   {
     id:2,
     title:'Hey When is my Couch Coming!!?!?!?!?!?!?!',
     description:'It has been 2 weeks and I am still left sitting on the floor!',
-    image:require('../assets/CorbinMarch.jpg')
+    image:require('../assets/grumpdog.jpeg')
   },
 ]
 

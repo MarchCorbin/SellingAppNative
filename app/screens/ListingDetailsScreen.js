@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { View, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native'
 import {Image} from 'react-native-expo-image-cache';
 
@@ -7,9 +7,13 @@ import AppText from '../components/AppText/AppText';
 import colors from '../config/colors';
 import ListItem from '../components/ListItem'
 import ContactSellerForm from '../components/ContactSellerForm';
+import AuthContext from '../auth/context'
+import listings from '../api/listings';
 
 function ListingDetailsScreen({route}) {
-  const listing = route.params
+  const user = useContext(AuthContext);
+  console.log(user, "IAMUSER");
+  const listing = route.params;
   return (
   <KeyboardAvoidingView 
   behavior='position' 
@@ -22,9 +26,9 @@ function ListingDetailsScreen({route}) {
     <AppText style={styles.price}>${listing.price}</AppText>
       <View style={styles.userContainer}>
         <ListItem
-        image={require('../assets/CorbinMarch.jpg')}
-        title="Corbin March"
-        subTitle='7 listings'
+        image={require('../assets/benfranklin.jpeg')}
+        title={user.user.name}
+        subTitle= "7 listings"
         />
       </View>
       <ContactSellerForm listing={listing} />

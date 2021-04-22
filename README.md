@@ -1,4 +1,13 @@
-# SellingAppNative
+# Done With It!
+Done with it is an item selling app where users can create an account, upload pictures, send and receive messages and add detailed descriptions for each of their items. The app features a clean user interface built with React Native. Forms are done with formik and bugsnag is implemented to detail bugs users may encounter. Persistent login functionality is implemented using SecureStore and user authentication is using jwtDecode.
+
+## Tech Used
+* React Native
+* Yup
+* Formik
+* Bugsnag
+* Context
+* Secure Store
 
 ### Register as a new user </br>
 ![loggingin](https://user-images.githubusercontent.com/54864865/115644758-55262480-a2dc-11eb-8d2f-05f3e5bacfd8.gif)
